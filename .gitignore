@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[oc]
+*.pyc
+build/
+dist/
+wheels/
+*.egg-info
+*.egg
+
+# Virtual env
+.venv
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config & certs
+~/.config/tv_remote/
+*.pem
+*.key
+cert.pem
+key.pem
+
+# Project data
+paired.json
+
+# uv
+uv.lock

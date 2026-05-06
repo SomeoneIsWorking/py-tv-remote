@@ -1,0 +1,50 @@
+syntax = "proto2";
+
+package tv_remote;
+
+message PairingMessage {
+  enum StatusCode {
+    UNKNOWN = 0;
+    PAIRING_CODE_REQUIRED = 1;
+    PAIRING_CODE = 2;
+    PAIRING_CODE_REQUEST = 3;
+    PAIRING_CODE_RESPONSE = 4;
+    PAIRING_REQUEST = 5;
+    PAIRING_CODE_RESPONSE_SUCCESS = 31;
+    PAIRING_CODE_RESPONSE_FAILURE = 32;
+    OPTIONS = 10;
+    OPTIONS_RESPONSE = 11;
+    SET_HOST_NAME = 7;
+    HOST_NAME = 8;
+    SET_HOST_NAME_RESPONSE = 9;
+    SET_HOST_NAME_RESPONSE_SUCCESS = 91;
+    SET_HOST_NAME_RESPONSE_FAILURE = 92;
+    PAIRING_REQUEST_CONFIRMATION = 21;
+    PAIRING_REQUEST_CONFIRMATION_RESPONSE = 51;
+    PAIRING_REQUEST_CONFIRMATION_CANCELLED = 52;
+    PAIRING_REQUEST_CONFIRMATION_SUCCESS = 53;
+  }
+  optional StatusCode status = 1;
+  optional int32 pairing_code = 2;
+  optional bytes service_name = 3;
+  optional bytes client_name = 4;
+  optional bytes host_name = 5;
+  optional bytes host_description = 6;
+  optional bytes secret = 7;
+}
+
+message RemoteMessage {
+  enum StatusCode {
+    UNKNOWN = 0;
+    KEY_PRESS = 1;
+    KEY_RELEASE = 2;
+    KEY_DOWN = 3;
+    KEY_UP = 4;
+    KEY_CODE_REQUEST = 7;
+    KEY_CODE_REMOTE = 8;
+    KEY_CODE = 9;
+  }
+  optional StatusCode status = 1;
+  optional int32 key_code = 2;
+  optional int32 key_action = 3;
+}

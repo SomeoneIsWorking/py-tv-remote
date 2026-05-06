@@ -1,0 +1,31 @@
+[project]
+name = "remote"
+version = "0.1.0"
+description = "Android TV Remote Controller"
+requires-python = ">=3.12"
+dependencies = [
+    "androidtvremote2>=0.3.1",
+    "cryptography",
+    "protobuf",
+    "pychromecast>=14.0.10",
+    "pyedifice",
+    "pyside6>=6.11.0",
+    "zeroconf",
+]
+
+[project.scripts]
+tv-remote = "tv_remote.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "py2app>=0.28.10",
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.3.0",
+]
